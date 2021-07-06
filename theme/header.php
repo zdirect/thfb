@@ -12,12 +12,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="format-detection" content="address=no" />
-    <link href="https://fonts.googleapis.com/css2?family=Galada&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-    <link rel="stylesheet" href="<?php echo TEMPLATE_PATH ?>/styles/app.css">
-
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="<?php echo TEMPLATE_PATH ?>/css/bootstrap.min.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="all" href="<?php echo TEMPLATE_PATH ?>/css/jquery.fancybox.css">
+	<link rel="stylesheet" href="<?php echo TEMPLATE_PATH ?>/fonts/fonts.css" />
+	<link rel="stylesheet" href="<?php echo TEMPLATE_PATH ?>/css/slick.css" />
+	<link rel="stylesheet" href="<?php echo TEMPLATE_PATH ?>/css/slick-theme.css" />
+	<link rel="stylesheet" href="<?php echo TEMPLATE_PATH ?>/css/animate.css" />
+	<link rel="stylesheet" href="<?php echo TEMPLATE_PATH ?>/css/menu-style.css" />
+	<link rel="stylesheet" href="<?php echo TEMPLATE_PATH ?>/css/main.css" />
+	<link rel="stylesheet" href="<?php echo TEMPLATE_PATH ?>/css/media.css" />
     <?php wp_head(); ?>
 </head>
-<body>
-<?php dynamic_sidebar('header'); ?>
+<body class="<?php echo (is_front_page() || is_page_template('page-jobs.php') || is_page_template('page-story.php') || is_page_template( 'page-partners.php' ) ) ? 'home-style': ''?>">
+<header>
+    <div class="container pos-r">
+        <div class="logo">
+            <a href="<?php echo home_url()?>">
+                <img src="<?php echo TEMPLATE_PATH ?>/images/logo.svg" alt="">
+            </a>
+        </div>
+        <div class="navig-header">
+            <div class="colapse-menu-button">
+                <button class="c-hamburger c-hamburger--htx">
+                    <span></span>
+                </button>
+            </div>
+            <div class="navig-header-back">
+                <?php wp_nav_menu( 'top' ); ?>
+            </div>
+        </div>
+    </div>
+</header>
 

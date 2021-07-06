@@ -1,0 +1,7 @@
+{
+    "browserSync.config": {
+        "browser" : ["chrome"],
+        "codeSync" : false,
+        
+    }
+}

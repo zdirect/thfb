@@ -22,6 +22,22 @@ get_header()?>
 				<?php echo get_field('top-group')['text']?>
 			</div>
 			<div class="single-product-other">
+                <?php echo term_description()?>
+                <?php 
+                $queried_object = get_queried_object();
+                $term_id = $queried_object->term_id;
+                $query = get_posts([
+                    'post_type' => 'products',
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'category',
+                            'field' => 'id',
+                            'terms' => $term_id,
+                        )
+                     )
+                ]);
+                ?>
+
 				<?php foreach( get_field('blocks-group')['blocks'] as $value ): ?>
 					<div class="single-item">
 						<div class="row">
@@ -66,5 +82,5 @@ get_header()?>
 		<img src="<?php echo TEMPLATE_PATH ?>/images/aft-back2.jpeg" alt="">
 	</div>
 </div>
-<?php
-get_footer();
+
+<?php get_footer();

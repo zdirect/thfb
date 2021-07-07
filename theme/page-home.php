@@ -91,29 +91,9 @@ get_header();
                             </div>
                             <div class="col-xl-6">
                                 <div class="our-product-item-txt">
-                                <?php
-                                    global $post;
-                                    $myposts = get_posts([ 
-                                        'post_type' => 'products',
-                                        'tax_query' => array(
-                                            array(
-                                              'taxonomy' => 'category',
-                                              'field' => 'slug',
-                                              'terms' => $item->slug,
-                                            )
-                                        ),
-                                    ]);
-                                    if( $myposts ){
-                                        foreach( $myposts as $post ){
-                                            setup_postdata( $post );
-                                            ?><a href="<?php echo get_permalink()?>"><?php echo the_title()?></a><?php 
-                                        }
-                                    }
-                                    wp_reset_postdata();
-                                    ?>
                                     <?php foreach( get_terms( [ 'taxonomy' => 'category', 'parent' => $item->term_taxonomy_id ] ) as $item ): ?>
-                                        <a href="/products/test/"><?php echo $item->name ?></a>
-                                    <?php endforeach ?>    
+                                        <a href="<?php echo get_term_link( $item )?>"> <?php echo $item->name ?></a>
+                                    <?php endforeach ?> 
                                 </div>
                             </div>
                         </div>

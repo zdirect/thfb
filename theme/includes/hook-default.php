@@ -10,7 +10,15 @@ class Hook_Default{
         add_action( 'after_setup_theme', [ __CLASS__, 'image_size' ] );
         add_action( 'after_setup_theme', [ __CLASS__, 'support_theme' ] );
         add_action( 'init', [ __CLASS__, 'register_post_type'] );
+        add_filter( 'category_template', [ __CLASS__, 'get_template_for_category'] );
+    }
 
+    public static function get_template_for_category( $template ) {
+
+        $cat = get_queried_object();
+        if( 0 < $cat->category_parent )
+            $template = locate_template( 'subcategory.php' );
+        return $template;
     }
 
     public static function register_post_type() {
@@ -68,6 +76,7 @@ class Hook_Default{
     public static function image_size(){
         add_image_size( 'taxonomy-image-home', 578, 360, true );
         add_image_size( 'single-image-gallery', 640, 500, true );
+        add_image_size( 'archive-image', 594, 370, true );
     }
 
 }

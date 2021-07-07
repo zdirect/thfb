@@ -1238,6 +1238,7 @@ select::-ms-expand {
 	padding-top: 200px;
 	color: #fff;
 	font-family:tahoma;
+	display: none;
   }
   .default-style{
 	  font-size: 18px;

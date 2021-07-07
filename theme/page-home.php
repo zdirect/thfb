@@ -80,114 +80,45 @@ get_header();
         <div id="our-product-home">
             <h2>Our PRODUCTS</h2>
             <div class="our-product-other">
-                <div class="our-product-item">
-                    <div class="row">
-                        <div class="col-xl-6">
-                            <div class="our-product-item-img">
-                                <h4>POLISH BREADS</h4>
-                                <img src="<?php echo TEMPLATE_PATH ?>/images/p1.jpg" alt="">
+                <?php foreach( get_terms( [ 'taxonomy' => 'category', 'parent' => 0, 'exclude' => '1' ] ) as $key=>$item ): ?>
+                    <div class="our-product-item">
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="our-product-item-img">
+                                    <h4><?php echo $item->name ?></h4>
+                                    <img src="<?php echo get_field('image_tax', 'category_'.$item->term_id )['sizes']['taxonomy-image-home']?>" alt="">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="our-product-item-txt">
-                                <a href="">Multigrain Bread</a>
-                                <a href="">Pan Brown Bread</a>
-                                <a href="">Spelt Bread</a>
-                                <a href="">Rye Bread</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="our-product-item">
-                    <div class="row">
-                        <div class="col-xl-6">
-                            <div class="our-product-item-img">
-                                <h4>LITHUANIAN BREADS</h4>
-                                <img src="<?php echo TEMPLATE_PATH ?>/images/p2.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="our-product-item-txt">
-                                <a href="">Multigrain Bread</a>
-                                <a href="">Pan Brown Bread</a>
-                                <a href="">Spelt Bread</a>
-                                <a href="">Rye Bread</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="our-product-item">
-                    <div class="row">
-                        <div class="col-xl-6">
-                            <div class="our-product-item-img">
-                                <h4>Romanian BREADS</h4>
-                                <img src="<?php echo TEMPLATE_PATH ?>/images/p3.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="our-product-item-txt">
-                                <a href="">Multigrain Bread</a>
-                                <a href="">Pan Brown Bread</a>
-                                <a href="">Spelt Bread</a>
-                                <a href="">Rye Bread</a>
+                            <div class="col-xl-6">
+                                <div class="our-product-item-txt">
+                                <?php
+                                    global $post;
+                                    $myposts = get_posts([ 
+                                        'post_type' => 'products',
+                                        'tax_query' => array(
+                                            array(
+                                              'taxonomy' => 'category',
+                                              'field' => 'slug',
+                                              'terms' => $item->slug,
+                                            )
+                                        ),
+                                    ]);
+                                    if( $myposts ){
+                                        foreach( $myposts as $post ){
+                                            setup_postdata( $post );
+                                            ?><a href="<?php echo get_permalink()?>"><?php echo the_title()?></a><?php 
+                                        }
+                                    }
+                                    wp_reset_postdata();
+                                    ?>
+                                    <?php foreach( get_terms( [ 'taxonomy' => 'category', 'parent' => $item->term_taxonomy_id ] ) as $item ): ?>
+                                        <a href="/products/test/"><?php echo $item->name ?></a>
+                                    <?php endforeach ?>    
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="our-product-item">
-                    <div class="row">
-                        <div class="col-xl-6">
-                            <div class="our-product-item-img">
-                                <h4>Deli</h4>
-                                <img src="<?php echo TEMPLATE_PATH ?>/images/p4.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="our-product-item-txt">
-                                <a href="">Multigrain Bread</a>
-                                <a href="">Pan Brown Bread</a>
-                                <a href="">Spelt Bread</a>
-                                <a href="">Rye Bread</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="our-product-item">
-                    <div class="row">
-                        <div class="col-xl-6">
-                            <div class="our-product-item-img">
-                                <h4>Buns</h4>
-                                <img src="<?php echo TEMPLATE_PATH ?>/images/p5.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="our-product-item-txt">
-                                <a href="">Multigrain Bread</a>
-                                <a href="">Pan Brown Bread</a>
-                                <a href="">Spelt Bread</a>
-                                <a href="">Rye Bread</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="our-product-item">
-                    <div class="row">
-                        <div class="col-xl-6">
-                            <div class="our-product-item-img">
-                                <h4>CAKES and TREATS</h4>
-                                <img src="<?php echo TEMPLATE_PATH ?>/images/p6.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="our-product-item-txt">
-                                <a href="">Multigrain Bread</a>
-                                <a href="">Pan Brown Bread</a>
-                                <a href="">Spelt Bread</a>
-                                <a href="">Rye Bread</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach ?>
             </div>
         </div>
         <div id="news-home">

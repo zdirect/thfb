@@ -15,6 +15,10 @@ class Hook_Default{
 
     public static function register_post_type() {
         register_post_type( self::POST_TYPE, [
+            'show_in_menu' => true,
+            'show_in_nav_menus' => true,
+            'show_ui' => true,
+            'has_archive' => true,
             'label' => '',
             'labels' => [
                 'name'               => self::POST_TYPE,
@@ -62,7 +66,8 @@ class Hook_Default{
     }
 
     public static function image_size(){
-        add_image_size( 'single-image', 387, 218, true );
+        add_image_size( 'taxonomy-image-home', 578, 360, true );
+        add_image_size( 'single-image-gallery', 640, 500, true );
     }
 
 }

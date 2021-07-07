@@ -45,4 +45,7 @@
         </div>
     </div>
 </header>
+<div class="down-ico"><a href=""><img src="<?php echo TEMPLATE_PATH ?>/images/down-ico.svg" alt=""></a></div>
+
+<div id="cover"> <img src="<?php echo TEMPLATE_PATH ?>/images/back-main.jpg" alt=""></div>
 

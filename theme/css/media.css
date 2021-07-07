@@ -74,6 +74,9 @@
 	.container{
         max-width: 960px;
     }
+    .down-ico{
+        display: none!important;
+    }
     .bord-style:after{
         left: 100px;
     }

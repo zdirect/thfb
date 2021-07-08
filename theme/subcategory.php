@@ -7,22 +7,16 @@ get_header()?>
 	</div>
 	<div class="breadcrumbs">
 		<div class="container">
-			<div class="breadcrumbs-item">
-				<a href="">HOME</a>
-				<a href="">PRODUCTS</a>
-				<a href="">POLISH BREADS</a>
-				<span>Craft BREADS</span>
-			</div>
+			<?php (new breadcrumbs())->render()?>
 		</div>
 	</div>
 	<section id="single-product">
 		<div class="container">
 			<div class="tax-top">
-				<h3><?php the_title()?></h3>
-				<?php echo get_field('top-group')['text']?>
+				<h3><?php single_term_title()?></h3>
+				<?php echo term_description()?>
 			</div>
 			<div class="single-product-other">
-                <?php echo term_description()?>
                 <?php 
                 $queried_object = get_queried_object();
                 $term_id = $queried_object->term_id;
@@ -37,14 +31,13 @@ get_header()?>
                      )
                 ]);
                 ?>
-
-				<?php foreach( get_field('blocks-group')['blocks'] as $value ): ?>
+				<?php foreach( $query as $value ): ?>
 					<div class="single-item">
 						<div class="row">
 							<div class="col-md-6">
-								<?php if( $value['gallery'] ):?>
+								<?php if( get_field('gallery', $value->ID) ):?>
 									<div class="single-item-img">
-										<?php foreach( $value['gallery'] as $item ): ?>
+										<?php foreach( get_field('gallery', $value->ID) as $item ): ?>
 											<div>
 												<div class="single-item-blo">
 													<?php echo wp_get_attachment_image( $item['id'], 'single-image-gallery' ); ?>
@@ -56,10 +49,12 @@ get_header()?>
 							</div>
 							<div class="col-md-6">
 								<div class="single-item-txt">
-									<h4><?php echo $value['title']?></h4>
-									<?php echo $value['text']?>
+									<h4><?php echo $value->post_title?></h4>
+									<?php echo get_field('text', $value->ID)?>
 									<div class="single-item-icon">
-										<?php array_walk( $value['specifically'], function( $value ){
+										<?php 
+										$array = get_field('specifically', $value->ID);
+										array_walk( $array , function( $value ){
 											?>
 											<div class="single-item-icon-item">
 												<div>

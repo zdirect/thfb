@@ -7,10 +7,7 @@ get_header()?>
     </div>
     <div class="breadcrumbs">
         <div class="container">
-            <div class="breadcrumbs-item">
-                <a href="">HOME</a>
-                <span>PRODUCTS</span>
-            </div>
+            <?php (new breadcrumbs())->render()?>
         </div>
     </div>
     <section id="our-products">

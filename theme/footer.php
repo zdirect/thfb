@@ -72,9 +72,7 @@
     </div>
 </footer>
 <div id="thanks" style="display: none;">
-    <h3>Спасибо! <br>	Ваша заявка принята!</h3>
-    <p>Ваша заявка принята и находится в обработке.Наш менеджер перезвонит Вам в течении 15 минут.</p>
-    <a href="http://zdirect.top/front-end/228/">ПОНЯТНО</a>
+    <h3>Thank you! <br> Your application has been accepted!</h3>
 </div>
 
 <script src="<?php echo TEMPLATE_PATH ?>/js/jquery-2.1.3.min.js"></script>

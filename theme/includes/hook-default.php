@@ -77,6 +77,7 @@ class Hook_Default{
         add_image_size( 'taxonomy-image-home', 578, 360, true );
         add_image_size( 'single-image-gallery', 640, 500, true );
         add_image_size( 'archive-image', 594, 370, true );
+        add_image_size( 'jobs-image', 867, 599, true );
     }
 
 }

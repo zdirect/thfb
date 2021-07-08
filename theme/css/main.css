@@ -1239,8 +1239,17 @@ select::-ms-expand {
 	color: #fff;
 	font-family:tahoma;
 	display: none;
-  }
-  .default-style{
-	  font-size: 18px;
-	  line-height: 1.4;
-  }
+}
+.default-style{
+	font-size: 18px;
+	line-height: 1.4;
+}
+#thanks{
+	text-align: center;
+}
+form button:disabled {
+    background: rgb(238, 238, 238)!important;	
+}
+.mobile-link{
+	display: none;
+}

@@ -121,6 +121,9 @@
     .navig-header-back{
         position: absolute;
         right: 0px;
+        width: 320px;
+        padding-left: 10px;
+        padding-right: 10px;
         top: 65px;
         padding-top: 20px;
         background: url('../images/menu-back.jpg')no-repeat center;
@@ -129,11 +132,16 @@
         flex-direction: column;
     }
     .navig-header li{
-        text-align: left;
-        margin-bottom: 15px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .navig-header li:nth-of-type(3){
+        padding-right: 0px;
     }
     body header .navig-header li a{
         color:#201600!important;
+        padding-left: 0px;
+        font-size: 21px;
     }
     .navig-header li:nth-of-type(4){
         padding-left: 0px;
@@ -323,6 +331,21 @@
     }
     .jobs-form{
         padding-bottom: 70px;
+    }
+    body header .navig-header li.mobile-link a{
+        font-size: 16px!important;
+        position: relative;
+        color:#C22622!important;
+        padding-right: 34px;
+    }
+    .mobile-link a:after{
+        content: url('../images/down.svg');
+        position: absolute;
+        right: 0px;
+        top: 0px;
+    }
+    .mobile-link{
+        display: inline-block;
     }
 }	
 

@@ -68,59 +68,6 @@ $(document).ready(function() {
     ]
   });
 
-  $(".send-form").each(function(){
-    var it = $(this);
-    it.validate({  
-         rules: {                                        
-            name: { required: true }, 
-            mail: { required: true }, 
-            phone: { required: true }
-        },
-        messages: {        
-      
-        },
-        errorPlacement: function(error, element) {
-
-        },
-        submitHandler: function(form) {
-        var thisForm =$(form);
-          
-        $.ajax({
-            type: "POST",
-            url: "sendmessage.php",
-            data: thisForm.serialize()
-        }).done(function() {
-          $.fancybox.close();
-            $(this).find("input").val("");
-             $.fancybox.open([
-                    {
-                        src : '#thanks'
-                    }
-                ], {
-                    padding : 0
-            });               
-            setTimeout(function() {
-                $.fancybox.close();
-            }, 2500);  
-                   
-            $(".send-form").trigger("reset");
-
-        });
-        return false;
-            
-        },
-        success: function() {
-       
-        },        
-        highlight: function(element, errorClass) {
-            $(element).addClass('error');
-        },
-        unhighlight: function(element, errorClass, validClass) {
-            $(element).removeClass('error');            
-        }
-        });
-    });
-
   $('.popup-form input[type=checkbox]').click(function(){
     if (this.checked){
       $('.popup-form button').attr('disabled',false);
@@ -202,6 +149,75 @@ $(document).ready(function() {
             }
 
  })();
+
+ $(".send-form").each(function(){
+  var it = $(this);
+
+  it.validate({  
+       rules: {                                        
+          name: { required: true }, 
+          phone: { required: true },
+      },
+      messages: {        
+    
+      },
+      errorPlacement: function(error, element) {
+
+      },
+      submitHandler: function(form) {
+      var thisForm =$(form);
+      var form_data = new FormData($('form')[0]);
+        
+      $.ajax({
+          type: "POST",
+          url: thisForm.attr('action'),
+          data: form_data,
+          processData: false,
+          contentType: false,
+          success: function success(response) {
+            console.log(response);
+            if(response.success){
+              $(this).find("input").val("");
+              $.fancybox.close();
+              $.fancybox.open([
+                      {
+                          src : '#thanks'
+                      }
+                  ], {
+                      padding : 0
+              });               
+              setTimeout(function() {
+                  $.fancybox.close();
+              }, 3000); 
+            }
+            else{
+              
+            }
+          }
+      })
+  
+          
+      },
+      success: function() {
+     
+      },        
+      highlight: function(element, errorClass) {
+          $(element).addClass('error');
+      },
+      unhighlight: function(element, errorClass, validClass) {
+          $(element).removeClass('error');            
+      }
+      });
+  });
+
+  $('.send-form input[type=checkbox]').click(function(){
+    if (this.checked){
+      $('.send-form button').attr('disabled',false);
+    }
+    else{
+       $('.send-form button').attr('disabled',true);
+    }
+  });
     
 });
 $(window).on('load', function () {

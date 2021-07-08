@@ -7,11 +7,7 @@ get_header()?>
     </div>
     <div class="breadcrumbs">
         <div class="container">
-            <div class="breadcrumbs-item">
-                <a href="">HOME</a>
-                <a href="">PRODUCTS</a>
-                <span>POLISH BREADS</span>
-            </div>
+            <?php (new breadcrumbs())->render()?>
         </div>
     </div>
     <section id="tax-other">
@@ -31,7 +27,7 @@ get_header()?>
                         <div class="row">
                             <div class="col-md-6 p0">
                                 <div class="our-products-it-img">
-                                    <img src="<?php echo TEMPLATE_PATH?>/images/t1.jpg" alt="">
+                                    <img src="<?php echo get_field('image_tax', 'category_'.$item->term_id )['sizes']['single-image-gallery']?>" alt="">
                                 </div>	
                             </div>
                             <div class="col-md-6">

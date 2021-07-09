@@ -11,6 +11,20 @@ class Hook_Default{
         add_action( 'after_setup_theme', [ __CLASS__, 'support_theme' ] );
         add_action( 'init', [ __CLASS__, 'register_post_type'] );
         add_filter( 'category_template', [ __CLASS__, 'get_template_for_category'] );
+        add_action( 'acf/init', [ __CLASS__, 'register_option' ] );
+    }
+
+    public static function register_option() {
+        if( function_exists('acf_add_options_page') ) {
+	
+            acf_add_options_page(array(
+                'page_title' 	=> 'Theme General Settings',
+                'menu_title'	=> 'Theme Settings',
+                'menu_slug' 	=> 'theme-general-settings',
+                'capability'	=> 'edit_posts',
+                'redirect'		=> false
+            ));
+        }
     }
 
     public static function get_template_for_category( $template ) {
@@ -78,6 +92,15 @@ class Hook_Default{
         add_image_size( 'single-image-gallery', 640, 500, true );
         add_image_size( 'archive-image', 594, 370, true );
         add_image_size( 'jobs-image', 867, 599, true );
+        add_image_size( 'background-image', 1920, 619, true );
+        add_image_size( 'partners-image', 500, 330, true );
+        add_image_size( 'advantages-image', 371, 478, true );
+        add_image_size( 'partners-logo', 314, 176, true );
+        add_image_size( 'story-ico', 256, 137, false );
+        add_image_size( 'slider-main', 1920, 960, true );
+        add_image_size( 'second-image', 640, 366, true );
+        add_image_size( 'news-image', 415, 330, true );
+        add_image_size( 'gall-image', 800, 600, true );
     }
 
 }

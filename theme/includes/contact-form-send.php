@@ -14,7 +14,7 @@ class Contact_Form_Send{
     public static function register_option(){
         acf_add_options_sub_page( [
             'page_title' => __( 'Orders', 'thfb_theme' ),
-            'menu_title' => __( 'Orders', 'thfb_theme' ),
+            'menu_title' => __( 'Email', 'thfb_theme' ),
             'menu_slug' => 'mail-menu',
             'parent_slug' => 'edit.php?post_type=orders',
         ]);
@@ -77,7 +77,7 @@ class Contact_Form_Send{
 
     public function mail_send( $formdata ){
 
-        $to = get_field('mail', 'option')['text']?:'zsdirect7@gmail.com';
+        $to = get_field('email_for_orders', 'option')?:'zsdirect7@gmail.com';
         $subject = 'Message from THFB';
 
         $message[] = '<caption>'. $formdata->name .'</caption>';

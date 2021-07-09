@@ -112,7 +112,7 @@ header{
 }
 .logo{
 	position: absolute;
-    top: 15px;
+    top: 14px;
 	left: 50%;
 	margin-left: -85px;
 }
@@ -357,12 +357,13 @@ footer h2{
 	margin-bottom: 41px;
 }
 .footer-contact-phone a{
-	font-size: 24px;
-	color:#fff;
-    padding-left: 84px;
-	display: inline-block;
+    font-size: 24px;
+    color: #fff;
+    padding-left: 68px;
+    padding-top: 3px;
+    display: inline-block;
     margin-bottom: 43px;
-	position: relative;
+    position: relative;
 }
 .footer-contact-phone a:before{
 	content: url('../images/phone-ico.svg');
@@ -381,7 +382,7 @@ footer h2{
 	text-decoration: underline;
 }
 .footer-contact-policy{
-    padding-top: 55px;
+    padding-top: 49px;
     padding-bottom: 3px;
 }
 .footer-inp input{
@@ -431,6 +432,7 @@ footer h2{
 	height: 100px;
 	font-size: 18px;
 	color:#fff;
+	outline: none;
 }
 .footer-textarea textarea::-webkit-input-placeholder {
 	font-weight: 500;
@@ -739,8 +741,7 @@ footer h2{
 }
 .story-top{
 	min-height: 619px;
-	background: url('../images/story-top.jpg')no-repeat center;
-	background-size: cover;
+	background-size: cover!important;
 	text-align: center;
 	color:#fff;
 }
@@ -769,6 +770,10 @@ footer h2{
 	margin-left: -9px;
 	top: 0px;
 }
+.story-nav .slick-track{
+	margin-left: 0px;
+	margin-right: 0px;
+}
 .story-for-item{
 	min-height: 1000px;
 }
@@ -788,9 +793,9 @@ footer h2{
 .bord-style:after{
     content: '';
     position: absolute;
-    left: 124px;
+    left: 90px;
     top: 42px;
-    width: 81%;
+    width: 87%;
     height: 2px;
     background: #201600;
 }
@@ -854,8 +859,7 @@ footer h2{
 }
 .partners-top{
 	min-height: 619px;
-	background: url('../images/partners-top.jpg')no-repeat center;
-	background-size: cover;
+	background-size: cover!important;
 	text-align: center;
 	color:#fff;
 }
@@ -1252,4 +1256,32 @@ form button:disabled {
 }
 .mobile-link{
 	display: none;
+}
+.story-nav .slick-prev {
+    background: url(../images/left4.svg)no-repeat center;
+	left: 0px;
+}
+.story-nav .slick-next {
+    background: url(../images/right4.svg)no-repeat center;
+	right: 0px;
+}
+.story-nav .slick-prev, .story-nav .slick-next{
+    top: 11px;
+}
+.fixed-menu {
+    position: fixed !important;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    opacity: 1;
+    background: #fff;
+    min-height: auto;
+    z-index: 100;
+	padding-bottom: 5px;
+}
+.fixed-menu .navig-header a{
+	color:#201600!important;
+}
+.fixed-menu .logo img{
+	
 }

@@ -26,11 +26,11 @@
     <?php wp_head(); ?>
 </head>
 <body class="<?php echo (is_front_page() || is_page_template('page-jobs.php') || is_page_template('page-story.php') || is_page_template( 'page-partners.php' ) ) ? 'home-style': ''?>">
-<header>
+<header id="menu" class="default-menu">
     <div class="container pos-r">
         <div class="logo">
             <a href="<?php echo home_url()?>">
-                <img src="<?php echo TEMPLATE_PATH ?>/images/logo.svg" alt="">
+                <img src="<?php echo get_field('header_group', 'option')['logo']['url']?>" alt="">
             </a>
         </div>
         <div class="navig-header">
@@ -45,7 +45,14 @@
         </div>
     </div>
 </header>
-<div class="down-ico"><a href=""><img src="<?php echo TEMPLATE_PATH ?>/images/down-ico.svg" alt=""></a></div>
 
-<div id="cover"> <img src="<?php echo TEMPLATE_PATH ?>/images/back-main.jpg" alt=""></div>
+<div class="down-ico">
+    <a href="<?php echo get_field('download_price', 'option')['link']?>" target="_blank">
+        <img src="<?php echo TEMPLATE_PATH ?>/images/down-ico.svg" alt="">
+    </a>
+</div>
+
+<div id="cover">
+    <img src="<?php echo TEMPLATE_PATH ?>/images/back-main.jpg" alt="">
+</div>
 

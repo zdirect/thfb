@@ -32,7 +32,8 @@
         padding-right: 20px;
     }
     .bord-style:after{
-        width: 80%;
+        width: 88%;
+        left: 68px;
     }
     .partners-item-txt {
         max-width: 511px;
@@ -78,7 +79,7 @@
         display: none!important;
     }
     .bord-style:after{
-        left: 100px;
+        left: 71px;
     }
     .fixed-menu{
         position: static!important;
@@ -347,6 +348,9 @@
     .mobile-link{
         display: inline-block;
     }
+    .fixed-menu{
+        display: none!important;
+    }
 }	
 
 @media only screen and (max-width : 991px) {
@@ -539,13 +543,17 @@
         font-size: 41px;
         line-height: 1.4;
     }
+    .story-nav .slick-track {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 @media only screen and (max-width : 767px) {
     .container, .container-hd{
         max-width: 540px;
     }   
     .story-for-item-other{
-        padding-top: 10px;
+        padding-top: 50px;
     }
     .story-for-item-txt{
         width: 100%;

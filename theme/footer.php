@@ -46,7 +46,7 @@
                                 <input type="text" placeholder="Contact Telephone*" name="phone">
                             </div>	
                             <div class="footer-inp">
-                                <input type="text" placeholder="Email*" name="email">
+                                <input type="email" placeholder="Email*" name="email" required>
                             </div>	
                             <div class="footer-textarea">
                                 <textarea placeholder="Massage Details" name="details"></textarea>
@@ -62,6 +62,11 @@
         </div>
     </div>
     <div class="footer-bottom">
+        <div class="footer-top anchor">
+            <a href="#main">
+                <img src="<?php echo TEMPLATE_PATH?>/images/scroll-top.svg" alt="">
+            </a>
+        </div>
         <div class="container">
             <?php echo get_field('footer_group', 'option')['copyright']?>
         </div>

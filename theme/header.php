@@ -25,26 +25,28 @@
 	<link rel="stylesheet" href="<?php echo TEMPLATE_PATH ?>/css/media.css" />
     <?php wp_head(); ?>
 </head>
-<body class="<?php echo (is_front_page() || is_page_template('page-jobs.php') || is_page_template('page-story.php') || is_page_template( 'page-partners.php' ) ) ? 'home-style': ''?>">
-<header id="menu" class="default-menu">
-    <div class="container pos-r">
-        <div class="logo">
-            <a href="<?php echo home_url()?>">
-                <img src="<?php echo get_field('header_group', 'option')['logo']['url']?>" alt="">
-            </a>
-        </div>
-        <div class="navig-header">
-            <div class="colapse-menu-button">
-                <button class="c-hamburger c-hamburger--htx">
-                    <span></span>
-                </button>
+<body id="main" class="<?php echo (is_front_page() || is_page_template('page-jobs.php') || is_page_template('page-story.php') || is_page_template( 'page-partners.php' ) ) ? 'home-style': ''?>">
+<div class="height-style">
+    <header id="menu" class="default-menu">
+        <div class="container pos-r">
+            <div class="logo">
+                <a href="<?php echo home_url()?>">
+                    <img src="<?php echo get_field('header_group', 'option')['logo']['url']?>" alt="">
+                </a>
             </div>
-            <div class="navig-header-back">
-                <?php wp_nav_menu( 'top' ); ?>
+            <div class="navig-header">
+                <div class="colapse-menu-button">
+                    <button class="c-hamburger c-hamburger--htx">
+                        <span></span>
+                    </button>
+                </div>
+                <div class="navig-header-back">
+                    <?php wp_nav_menu( 'top' ); ?>
+                </div>
             </div>
         </div>
-    </div>
-</header>
+    </header>
+</div>
 
 <div class="down-ico">
     <a href="<?php echo get_field('download_price', 'option')['link']?>" target="_blank">
@@ -52,7 +54,5 @@
     </a>
 </div>
 
-<div id="cover">
-    <img src="<?php echo TEMPLATE_PATH ?>/images/back-main.jpg" alt="">
-</div>
+<div id="cover"></div>
 

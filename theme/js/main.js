@@ -83,7 +83,7 @@ $(document).ready(function() {
   });
   $(".phone_numb").mask("+7 (999) 999-99-99");
     
-   $('.anchor').bind("click", function(e){
+   $('.anchor a').bind("click", function(e){
     var anchor = $(this);
     $('html, body').stop().animate({
     scrollTop: $(anchor.attr('href')).offset().top-60
@@ -240,5 +240,5 @@ $(document).ready(function() {
     
 });
 $(window).on('load', function () {
-  $("#cover").fadeOut(1000);
+  $("#cover").fadeOut(2000);
 });

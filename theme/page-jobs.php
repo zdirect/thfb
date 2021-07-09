@@ -38,7 +38,7 @@ get_header();
                                     <input type="hidden" name="action" value="orders">
                                     <div class="form-input-style-two">
                                         <input type="text" placeholder="Your Name*" name="name">
-                                        <input type="text" placeholder="Email*" name="email">
+                                        <input type="email" placeholder="Email*" name="email" required>
                                     </div>
                                     <div class="form-input-style-two">
                                         <input type="text" placeholder="Contact Telephone number*" name="phone">

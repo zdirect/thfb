@@ -34,8 +34,9 @@ get_header();
                         <div class="col-xl-7">
                             <div class="jobs-form-item">
                                 <h3>THIS IS A SEPARATE PAGE</h3>
-                                <form action="<?php echo admin_url('admin-ajax.php')?>" class="send-form" method="POST" enctype="multipart/form-data">
+                                <form action="<?php echo admin_url('admin-ajax.php')?>" class="send-form-file" method="POST" enctype="multipart/form-data">
                                     <input type="hidden" name="action" value="orders">
+                                    <input id="token" type="hidden" name="token">
                                     <div class="form-input-style-two">
                                         <input type="text" placeholder="Your Name*" name="name">
                                         <input type="email" placeholder="Email*" name="email" required>
@@ -77,7 +78,11 @@ get_header();
                                         </div>
                                     </div>
                                     <div class="form-input-captha">
-                                        <img src="<?php echo TEMPLATE_PATH ?>/images/captha.jpg" alt="">
+                                        <div class="g-recaptcha" data-sitekey="6Ld_xYYbAAAAAFvRGNDmsKGQ2JoY4LbZP-DAbQpL"></div>
+                                        <input type="hidden" class="hiddenRecaptcha" name="hiddenRecaptcha" id="hiddenRecaptcha">
+                                    </div>
+                                    <div class="google-message">
+                                        checking Google captcha
                                     </div>
                                     <div class="text-center">
                                         <button>Send message</button>

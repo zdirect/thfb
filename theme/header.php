@@ -23,6 +23,7 @@
 	<link rel="stylesheet" href="<?php echo TEMPLATE_PATH ?>/css/menu-style.css" />
 	<link rel="stylesheet" href="<?php echo TEMPLATE_PATH ?>/css/main.css" />
 	<link rel="stylesheet" href="<?php echo TEMPLATE_PATH ?>/css/media.css" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <?php wp_head(); ?>
 </head>
 <body id="main" class="<?php echo (is_front_page() || is_page_template('page-jobs.php') || is_page_template('page-story.php') || is_page_template( 'page-partners.php' ) ) ? 'home-style': ''?>">

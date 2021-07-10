@@ -37,7 +37,7 @@
                 <div class="footer-cont">
                     <h3>CONTACT FORM</h3>
                     <div class="footer-contact-form">
-                        <form action="<?php echo admin_url('admin-ajax.php')?>" class="send-form" method="POST">
+                        <form action="<?php echo admin_url('admin-ajax.php')?>" class="send-form" method="POST" enctype="multipart/form-data">
                             <input type="hidden" name="action" value="orders">
                             <div class="footer-inp">
                                 <input type="text" placeholder="Your Full Name*" name="name">
@@ -52,7 +52,11 @@
                                 <textarea placeholder="Massage Details" name="details"></textarea>
                             </div>
                             <div class="google-captha">
-                                <!--<img src="images/captha.jpg" alt="">-->
+                                <div class="g-recaptcha" data-sitekey="6Ld_xYYbAAAAAFvRGNDmsKGQ2JoY4LbZP-DAbQpL"></div>
+                                <input type="hidden" class="hiddenRecaptcha" name="hiddenRecaptcha" id="hiddenRecaptcha">
+                            </div>
+                            <div class="google-message">
+                                checking Google captcha
                             </div>
                             <button>Send message</button>
                         </form>
@@ -77,11 +81,10 @@
 </div>
 
 <script src="<?php echo TEMPLATE_PATH ?>/js/jquery-2.1.3.min.js"></script>
-<script src="<?php echo TEMPLATE_PATH ?>/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<?php echo TEMPLATE_PATH ?>/js/jquery.fancybox.min.js"></script>
 <script src="<?php echo TEMPLATE_PATH ?>/js/jquery.validate.min.js"></script>
-<script src="<?php echo TEMPLATE_PATH ?>/js/maskedinput/jquery.maskedinput.min.js"></script>
 <script src="<?php echo TEMPLATE_PATH ?>/js/slick.min.js"></script>
 <script src="<?php echo TEMPLATE_PATH ?>/js/main.js"></script>
+
 <?php 
 wp_footer();

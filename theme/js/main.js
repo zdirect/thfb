@@ -81,7 +81,6 @@ $(document).ready(function() {
   $('.modalbox').fancybox({
     touch:false
   });
-  $(".phone_numb").mask("+7 (999) 999-99-99");
     
    $('.anchor a').bind("click", function(e){
     var anchor = $(this);
@@ -106,12 +105,6 @@ $(document).ready(function() {
               .fadeIn(0);
        });
      }
-   });
-
-   $('.where-class').click(function(){
-    var item = $(this).data('where');
-    console.log(item);
-    $('form .where').val(item);
    });
 
    $('.input-file').each(function() {
@@ -151,17 +144,39 @@ $(document).ready(function() {
 
  })();
 
- $(".send-form").each(function(){
+//  grecaptcha.ready(function() {
+//  $('.send-form button').click(function direct(){
+//       var response = grecaptcha.getResponse();
+//       if(response.length == 0){
+//         $(this).prev().fadeIn();
+//         $(this).prev().addClass('test');
+//         return 'false';
+//       }
+//       else{
+//         $(this).prev().hide();
+//         return 'true';
+//       }
+//     });
+//  });
+$(".send-form-file").each(function(){
   var it = $(this);
 
   it.validate({  
-       rules: {                                        
+      ignore: ".ignore",
+       rules: {                                      
           name: { required: true }, 
           phone: { required: true },
           email: { required: true },
-      },
-      messages: {        
-    
+          hiddenRecaptcha: {
+            required: function () {
+                var response = grecaptcha.getResponse();
+                if (response.length == 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            },
+        },
       },
       errorPlacement: function(error, element) {
 
@@ -177,7 +192,6 @@ $(document).ready(function() {
           processData: false,
           contentType: false,
           success: function success(response) {
-            console.log(response);
             if(response.success){
               $(this).find("input").val("");
               $.fancybox.close();
@@ -197,8 +211,71 @@ $(document).ready(function() {
             }
           }
       })
-  
-          
+      },
+      success: function() {
+     
+      },        
+      highlight: function(element, errorClass) {
+          $(element).addClass('error');
+      },
+      unhighlight: function(element, errorClass, validClass) {
+          $(element).removeClass('error');            
+      }
+      });
+  });
+ $(".send-form").each(function(){
+  var it = $(this);
+
+  it.validate({  
+      ignore: ".ignore",
+       rules: {                                      
+          name: { required: true }, 
+          phone: { required: true },
+          email: { required: true },
+          hiddenRecaptcha: {
+            required: function () {
+                var response = grecaptcha.getResponse();
+                if (response.length == 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            },
+        },
+      },
+      errorPlacement: function(error, element) {
+
+      },
+      submitHandler: function(form) {
+      var thisForm =$(form);
+      var form_data = new FormData($('form')[0]);
+        
+      $.ajax({
+          type: "POST",
+          url: thisForm.attr('action'),
+          data: form_data,
+          processData: false,
+          contentType: false,
+          success: function success(response) {
+            if(response.success){
+              $(this).find("input").val("");
+              $.fancybox.close();
+              $.fancybox.open([
+                      {
+                          src : '#thanks'
+                      }
+                  ], {
+                      padding : 0
+              });               
+              setTimeout(function() {
+                  $.fancybox.close();
+              }, 3000); 
+            }
+            else{
+              
+            }
+          }
+      })
       },
       success: function() {
      

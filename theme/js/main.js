@@ -12,6 +12,28 @@ $(document).ready(function() {
     dots:true,
   });
 
+  $('#slider-home-mobile').slick({
+    centerMode: true,
+    centerPadding: '60px',
+    slidesToShow: 1,
+    responsive: [
+      {
+        breakpoint: 540,
+        settings: {
+          slidesToShow: 1,
+          centerPadding: '30px',
+        }
+      },
+      {
+        breakpoint: 350,
+        settings: {
+          slidesToShow: 1,
+          centerPadding: '15px',
+        }
+      }
+    ]
+  });
+
   $('.news-home-slider').slick({
     speed: 300,
     slidesToShow: 3,
@@ -55,7 +77,6 @@ $(document).ready(function() {
         settings: {
           slidesToShow: 5,
           slidesToScroll: 1,
-          centerMode: false,
         }
       },
       {
@@ -63,7 +84,6 @@ $(document).ready(function() {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
-          centerMode: false,
         }
       }
     ]
@@ -107,6 +127,10 @@ $(document).ready(function() {
      }
    });
 
+   $('.close-menu').click(function(){
+    $('.mobile-menu').fadeOut();
+   });
+
    $('.input-file').each(function() {
     var $input = $(this),
       $label = $input.next('.js-labelFile'),
@@ -121,43 +145,10 @@ $(document).ready(function() {
 
     $(function(){
       $('.colapse-menu-button .c-hamburger').on('click',function(){
-        $('.navig-header-back').slideToggle();
+        $('.mobile-menu').slideToggle();
       });
   });
-      (function() {
 
-            "use strict";
-
-            var toggles = document.querySelectorAll(".c-hamburger");
-
-            for (var i = toggles.length - 1; i >= 0; i--) {
-                var toggle = toggles[i];
-                toggleHandler(toggle);
-            };
-
-            function toggleHandler(toggle) {
-                toggle.addEventListener( "click", function(e) {
-                    e.preventDefault();
-                    (this.classList.contains("is-active") === true) ? this.classList.remove("is-active") : this.classList.add("is-active");
-                });
-            }
-
- })();
-
-//  grecaptcha.ready(function() {
-//  $('.send-form button').click(function direct(){
-//       var response = grecaptcha.getResponse();
-//       if(response.length == 0){
-//         $(this).prev().fadeIn();
-//         $(this).prev().addClass('test');
-//         return 'false';
-//       }
-//       else{
-//         $(this).prev().hide();
-//         return 'true';
-//       }
-//     });
-//  });
 $(".send-form-file").each(function(){
   var it = $(this);
 

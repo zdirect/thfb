@@ -47,5 +47,12 @@ get_header()?>
         <img src="<?php echo TEMPLATE_PATH?>/images/aft-back2.jpeg" alt="">
     </div>
 </div>
+<div class="breadcrumbs-mobile">
+    <div class="breadcrumbs">
+        <div class="container">
+                <?php (new breadcrumbs())->render()?>
+        </div>
+    </div>
+</div>
 
 <?php get_footer();

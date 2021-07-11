@@ -53,7 +53,7 @@ get_header();
                         <div class="row">
                             <div class="col-xl-6">
                                 <div class="our-product-item-img">
-                                    <h4><?php echo $item->name ?></h4>
+                                    <h4><a href="<?php echo get_term_link( $item ) ?>"><?php echo $item->name ?></a></h4>
                                     <img src="<?php echo get_field('image_tax', 'category_'.$item->term_id )['sizes']['taxonomy-image-home']?>" alt="">
                                 </div>
                             </div>
@@ -87,6 +87,24 @@ get_header();
                 <?php endforeach?>
             </div>
         </div>
+        <div id="news-home-mobile">
+            <h2>NEWS & EVENTS</h2>
+            <div class="row">
+                <?php foreach( get_field('news')['cont'] as $value ):?>
+                    <div class="col-6">
+                        <a class="news-home-item" href="<?php echo get_the_permalink( $value )?>">
+                            <div class="news-home-item-img">
+                                <?php echo get_the_post_thumbnail( $value, 'news-image' ) ?>
+                            </div>
+                            <div class="news-home-item-txt">
+                                <h4><?php echo get_the_title( $value )?></h4>
+                                <p><?php echo wp_trim_words( get_the_content( null, null, $value ), 15 )?></p>
+                            </div>
+                        </a>
+                    </div>
+                <?php endforeach?>
+            </div>
+        </div>
     </div>
     <div class="aft-back-2">
         <img src="<?php echo TEMPLATE_PATH ?>/images/aft-back2.jpeg" alt="">
@@ -101,6 +119,21 @@ get_header();
             </div>
         <?php endforeach?>
     </div>
+</div>
+<div id="slider-home-mobile">
+    <?php 
+    $array = array_chunk( get_field('gallery_home'), 2 );
+    foreach( $array as $value ):?>
+    <div>
+        <div class="slider-home-mobile-flex">
+            <?php foreach( $value  as $item ):?>
+                <div class="slider-home-mobile-img">
+                    <?php echo wp_get_attachment_image( $item['id'], 'advantages-image' ); ?>
+                </div>
+            <?php endforeach?>
+        </div>
+    </div>
+    <?php endforeach?>
 </div>
 
 <?php

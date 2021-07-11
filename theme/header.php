@@ -48,6 +48,14 @@
         </div>
     </header>
 </div>
+<div class="mobile-menu">
+    <div class="navig-header-back">
+        <div class="close-menu">
+            <img src="<?php echo TEMPLATE_PATH?>/images/close.svg" alt="">
+        </div>
+        <?php wp_nav_menu( 'top' ); ?>
+    </div>
+</div>
 
 <div class="down-ico">
     <a href="<?php echo get_field('download_price', 'option')['link']?>" target="_blank">

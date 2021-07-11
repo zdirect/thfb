@@ -34,12 +34,14 @@ get_header(); ?>
                     <div class="partners-list">
                         <?php foreach( get_field('advantages')['content'] as $key=>$item ): ?>
                             <div class="partners-item">
+                                <h3 class="partners-title"><?php echo $item['title']?></h3>
                                 <div class="partners-item-txt">
                                     <h3><?php echo $item['title']?></h3>
                                     <p><?php echo $item['text']?></p>
                                 </div>
                                 <div class="partners-item-img">
                                     <img src="<?php echo $item['image']['sizes']['advantages-image']?>" alt="">
+                                    <img src="<?php echo $item['image']['sizes']['partners-logo']?>" alt="">
                                 </div>
                                 <div class="partners-item-numb">
                                     <?php echo intval( $key+1 )?>.
@@ -53,7 +55,7 @@ get_header(); ?>
                     <div class="our-partners-other">
                         <?php foreach( get_field('our_partners')['gallery'] as $key=>$item ): ?>
                             <div class="our-partners-item">
-                                <?php echo wp_get_attachment_image( $item['id'], 'partners-logo' ); ?>
+                                <a href="<?php echo $item['description']?>" target="_blank"><?php echo wp_get_attachment_image( $item['id'], 'partners-logo' ); ?></a>
                             </div>
                         <?php endforeach?>
                     </div>

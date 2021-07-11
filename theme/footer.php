@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="footer-maps">
-                    <h3><?php echo get_field('footer_group', 'option')['title_maps']?></h3>
+                    <h3><a href="<?php echo get_field('footer_group', 'option')['title_maps_link']['url']?>" target="_blank"><?php echo get_field('footer_group', 'option')['title_maps_link']['title']?></a></h3>
                     <div class="footer-maps-item">
                         <?php echo get_field('footer_group', 'option')['maps']?>
                     </div>

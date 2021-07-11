@@ -14,6 +14,7 @@
     }
     .news-home-item-img img{
         max-width: 100%;
+        height: auto;
     }
     .news-home-item{
         padding-left: 10px;
@@ -649,6 +650,7 @@
     }
     .news-home-slider .slick-prev{
         left: -15px;
+        z-index: 2;
     }
     .tax-top h3{
         padding-bottom: 10px;

@@ -265,6 +265,12 @@ header{
 	border-radius: 5px;
 	overflow: hidden;
 	margin: 0 auto;
+	display: block;
+	color:#201600;
+}
+.news-home-item:hover{
+	text-decoration: none;
+	color:#201600;
 }
 .news-home-item h4{
     font-size: 28px;
@@ -998,10 +1004,25 @@ footer h2{
 	text-align: center;
 	color:#fff;
 }
+.news-single{
+	background-size: cover!important;
+	position: relative;
+}
+.news-single::after{
+	content: '';
+	position: absolute;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    background: rgba(48, 48, 48, 0.57);
+}
 .jobs-top h1{
     font-size: 48px;
     line-height: 70px;
     padding-top: 223px;
+	position: relative;
+	z-index: 2;
 }
 .jobs-item-flex{
 	display: flex;
@@ -1244,6 +1265,7 @@ select::-ms-expand {
 	padding-top: 200px;
 	color: #fff;
 	font-family:tahoma;
+	display: none;;
 }
 .default-style{
 	font-size: 18px;

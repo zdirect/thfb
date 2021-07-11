@@ -72,17 +72,17 @@ get_header();
         <div id="news-home">
             <h2>NEWS & EVENTS</h2>
             <div class="news-home-slider">
-                <?php foreach( get_field('news')['content'] as $value ):?>
+                <?php foreach( get_field('news')['cont'] as $value ):?>
                     <div>
-                        <div class="news-home-item">
+                        <a class="news-home-item" href="<?php echo get_the_permalink( $value )?>">
                             <div class="news-home-item-img">
-                                <img src="<?php echo $value['image']['sizes']['news-image']?>" alt="<?php echo $value['image']['alt']?>">
+                                <?php echo get_the_post_thumbnail( $value, 'news-image' ) ?>
                             </div>
                             <div class="news-home-item-txt">
-                                <h4><?php echo $value['title']?></h4>
-                                <p><?php echo $value['text']?></p>
+                                <h4><?php echo get_the_title( $value )?></h4>
+                                <p><?php echo wp_trim_words( get_the_content( null, null, $value ), 30 )?></p>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 <?php endforeach?>
             </div>

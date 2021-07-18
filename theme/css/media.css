@@ -79,6 +79,10 @@
     body{
         zoom: 1;
     }
+    /* .g-recaptcha iframe{
+        width: auto;
+        margin-left: 0px;
+    } */
     .down-ico{
         display: none!important;
     }
